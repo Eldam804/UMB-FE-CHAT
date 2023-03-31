@@ -1,7 +1,29 @@
+img{
+  margin: 100px 0 20px 0;
+  width: 200px;
+  height: auto;
+}
 .login{
   height: 100vh;
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
   align-items: center;
   flex-direction: column;
 }
+
+.login {
+  background: linear-gradient(#00E6FF,#006DFF);
+  color: white;
+  text-align: center;
+}
+.login span:nth-child(2){
+  font-size: 50px;
+  font-weight: lighter;
+  margin-bottom: 50px;
+}
+.login span:nth-child(3){
+  font-size: 80px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+/*#15b9eb*/
