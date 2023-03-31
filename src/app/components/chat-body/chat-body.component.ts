@@ -11,10 +11,15 @@ export class ChatBodyComponent {
     {message: "Pokusna sprava 2", sentBy: "User2"},
     {message: "Pokusna sprava 3", sentBy: "User2"},
     {
-      message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+      message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       sentBy: "User1"
     },
-    {message: "Pokusna sprava 4", sentBy: "User2"}
+    {message: "Pokusna sprava 4", sentBy: "User2"},
+    {message: "Pokusna sprava 4", sentBy: "User2"},
+    {message: "Pokusna sprava 4", sentBy: "User2"},
+    {message: "Pokusna sprava 4", sentBy: "User2"},
+    {message: "Pokusna sprava 4", sentBy: "User2"},
+    {message: "Pokusna sprava 4", sentBy: "User2"},
   ];
 
   myMessage(m: any): boolean {

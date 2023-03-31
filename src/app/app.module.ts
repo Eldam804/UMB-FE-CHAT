@@ -23,6 +23,7 @@ import { PrivateChatComponent } from './chat/private-chat/private-chat.component
 import { ChatBodyComponent } from './components/chat-body/chat-body.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -36,21 +37,22 @@ import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
     PrivateChatComponent,
     ChatBodyComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterOutlet,
-    BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatListModule,
-    MatCardModule,
-    MatIconModule,
-    MatGridListModule,
-    CdkVirtualScrollViewport,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterOutlet,
+        BrowserAnimationsModule,
+        MatSlideToggleModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatListModule,
+        MatCardModule,
+        MatIconModule,
+        MatGridListModule,
+        CdkVirtualScrollViewport,
+        MatToolbarModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

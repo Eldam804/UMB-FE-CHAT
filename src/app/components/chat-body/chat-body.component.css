@@ -2,15 +2,32 @@
   border-radius: 25px;
   background: aqua;
   padding: 20px;
-  width: 300px;
+  width: auto;
   height: auto;
   margin: auto;
+  text-align: center;
 }
 .user-message{
   border-radius: 25px;
   background: whitesmoke;
   padding: 20px;
-  width: 300px;
+  width: auto;
   height: auto;
   margin: auto;
+  text-align: center;
+}
+
+
+
+mat-list{
+  flex-grow: 1;
+  border: 3px solid green;
+  overflow: auto;
+}
+.container-div{
+  height: 800px;
+  overflow: auto;
+}
+.container{
+  height: 30px;
 }
