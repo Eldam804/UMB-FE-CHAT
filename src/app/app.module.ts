@@ -13,24 +13,30 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
+import { ChatPageComponent } from './src/chat/chat-page/chat-page.component';
+import {MatIconModule} from "@angular/material/icon";
+import {RouterOutlet} from "@angular/router";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ChatPageComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatListModule,
-    MatCardModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterOutlet,
+        BrowserAnimationsModule,
+        MatSlideToggleModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatListModule,
+        MatCardModule,
+        MatIconModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
