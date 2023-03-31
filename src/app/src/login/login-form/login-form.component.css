@@ -1,0 +1,11 @@
+mat-card{
+  width: fit-content;
+}
+button{
+  width: 100%;
+}
+
+mat-card-content, mat-card-title{
+  display: flex;
+  justify-content: center;
+}
