@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LoginPageComponent} from "./login/login-page/login-page.component";
 import {ChatPageComponent} from "./chat/chat-page/chat-page.component";
+import {GlobalChatComponent} from "./chat/global-chat/global-chat.component";
 
 const router: Routes = [
   {
@@ -10,7 +11,7 @@ const router: Routes = [
   },
   {
     path: "global-chat",
-    component: ChatPageComponent,
+    component: GlobalChatComponent,
   },
 ]
 

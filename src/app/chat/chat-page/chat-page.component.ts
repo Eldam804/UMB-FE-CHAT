@@ -6,5 +6,5 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./chat-page.component.css']
 })
 export class ChatPageComponent {
-  name?: string;
+
 }

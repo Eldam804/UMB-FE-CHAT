@@ -16,27 +16,41 @@ import {MatCardModule} from "@angular/material/card";
 import { ChatPageComponent } from './chat/chat-page/chat-page.component';
 import {MatIconModule} from "@angular/material/icon";
 import {RouterOutlet} from "@angular/router";
+import { ChatHeaderComponent } from './components/chat-header/chat-header.component';
+import { ChatFooterComponent } from './components/chat-footer/chat-footer.component';
+import { GlobalChatComponent } from './chat/global-chat/global-chat.component';
+import { PrivateChatComponent } from './chat/private-chat/private-chat.component';
+import { ChatBodyComponent } from './components/chat-body/chat-body.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     LoginFormComponent,
-    ChatPageComponent
+    ChatPageComponent,
+    ChatHeaderComponent,
+    ChatFooterComponent,
+    GlobalChatComponent,
+    PrivateChatComponent,
+    ChatBodyComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RouterOutlet,
-        BrowserAnimationsModule,
-        MatSlideToggleModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        MatListModule,
-        MatCardModule,
-        MatIconModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterOutlet,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatListModule,
+    MatCardModule,
+    MatIconModule,
+    MatGridListModule,
+    CdkVirtualScrollViewport,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
