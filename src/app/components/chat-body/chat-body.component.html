@@ -12,4 +12,15 @@
     </span>
   </mat-grid-tile>
 </mat-grid-list>
+  <div class="chat-box">
+    <form [formGroup]="userMessage" (ngSubmit)="submit()">
+      <mat-form-field class="message-box">
+        <input matInput formControlName="message">
+        <button mat-button matSuffix mat-stroked-button color="primary" [disabled]="userMessage.invalid" type="submit">
+          <mat-icon>send</mat-icon>
+        </button>
+        <mat-error *ngIf="userMessage.controls.message.invalid">{{getMessageError()}}</mat-error>
+      </mat-form-field>
+    </form>
+  </div>
 </div>

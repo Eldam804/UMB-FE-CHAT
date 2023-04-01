@@ -9,7 +9,7 @@
 }
 .user-message{
   border-radius: 25px;
-  background: whitesmoke;
+  background: aquamarine;
   padding: 20px;
   width: auto;
   height: auto;
@@ -17,7 +17,16 @@
   text-align: center;
 }
 
-
+.chat-box{
+  width: auto;
+  height: 100px;
+}
+.message-box{
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 1000px;
+  height: 80px;
+}
 
 mat-list{
   flex-grow: 1;
@@ -26,7 +35,9 @@ mat-list{
 }
 .container-div{
   height: 800px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
 }
 .container{
   height: 30px;
