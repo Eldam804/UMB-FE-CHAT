@@ -1,0 +1,20 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+.logo{
+  margin-top: 8px;
+  font-size: 40px;
+  height: 50px;
+  width: 50px;
+}
+.profile {
+  margin-top: 8px;
+  font-size: 40px;
+  height: 50px;
+  width: 50px;
+}
+.outer-button{
+  margin-top: 7px;
+  margin-right: 10px;
+}
