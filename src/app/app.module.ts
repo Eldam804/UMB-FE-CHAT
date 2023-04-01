@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './src/login/login-page/login-page.component';
-import { LoginFormComponent } from './src/login/login-form/login-form.component';
+import { LoginPageComponent } from './login/login-page/login-page.component';
+import { LoginFormComponent } from './login/login-form/login-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormField} from "@angular/material/form-field";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
