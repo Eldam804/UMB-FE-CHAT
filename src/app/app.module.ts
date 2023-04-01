@@ -35,9 +35,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     ChatFooterComponent,
     GlobalChatComponent,
     PrivateChatComponent,
-    ChatBodyComponent
+    ChatBodyComponent,
   ],
-    imports: [
+  imports: [
         BrowserModule,
         AppRoutingModule,
         RouterOutlet,
