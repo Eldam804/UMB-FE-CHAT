@@ -2,13 +2,13 @@
 <mat-grid-list cols="3" rowHeight="8:1" class="container" *ngFor="let m of messages">
   <mat-grid-tile>
     <span *ngIf="!myMessage(m)" class="user-message">
-      {{m.message}}
+      {{m.content}}
     </span>
   </mat-grid-tile>
   <mat-grid-tile> </mat-grid-tile>
   <mat-grid-tile>
     <span *ngIf="myMessage(m)" class="my-message">
-      {{m.message}}
+      {{m.content}}
     </span>
   </mat-grid-tile>
 </mat-grid-list>

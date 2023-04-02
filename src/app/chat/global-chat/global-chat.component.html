@@ -3,7 +3,10 @@
     [name]="'General chat'"
   >
   </app-chat-header>
-  <app-chat-body>
+  <app-chat-body
+    [messages]="messages"
+    (sendMessage)="postMessage($event)"
+  >
   </app-chat-body>
   <app-chat-footer></app-chat-footer>
 </div>
