@@ -24,6 +24,8 @@ import { ChatBodyComponent } from './components/chat-body/chat-body.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { UserListComponent } from './user/user-list/user-list.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -36,8 +38,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     GlobalChatComponent,
     PrivateChatComponent,
     ChatBodyComponent,
+    UserListComponent,
   ],
-  imports: [
+    imports: [
         BrowserModule,
         AppRoutingModule,
         RouterOutlet,
@@ -52,6 +55,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
         MatGridListModule,
         CdkVirtualScrollViewport,
         MatToolbarModule,
+        MatTableModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
