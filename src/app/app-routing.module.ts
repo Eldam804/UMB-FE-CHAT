@@ -5,6 +5,7 @@ import {ChatPageComponent} from "./chat/chat-page/chat-page.component";
 import {GlobalChatComponent} from "./chat/global-chat/global-chat.component";
 import {PrivateChatComponent} from "./chat/private-chat/private-chat.component";
 import {UserListComponent} from "./user/user-list/user-list.component";
+import {UserProfileComponent} from "./user/user-profile/user-profile.component";
 
 const router: Routes = [
   {
@@ -22,6 +23,10 @@ const router: Routes = [
   {
     path: "user-list",
     component: UserListComponent
+  },
+  {
+    path: "profile",
+    component: UserProfileComponent
   }
 ]
 
