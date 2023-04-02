@@ -3,13 +3,13 @@
   <mat-grid-tile>
     <span *ngIf="!myMessage(m)" class="user-message">
       <img src="assets/login.png" class="img_login">
-      {{m.message}}
+      {{m.content}}
     </span>
   </mat-grid-tile>
   <mat-grid-tile> </mat-grid-tile>
   <mat-grid-tile>
     <span *ngIf="myMessage(m)" class="my-message">
-      {{m.message}}
+      {{m.content}}
     </span>
   </mat-grid-tile>
 </mat-grid-list>

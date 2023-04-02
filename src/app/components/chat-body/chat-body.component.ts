@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Message, MessageResponse} from "../../model/message.model";
 
 @Component({
   selector: 'app-chat-body',
@@ -10,28 +11,21 @@ export class ChatBodyComponent {
   userMessage: FormGroup<any>;
   constructor() {
     this.userMessage = new FormGroup<any>({
-      message: new FormControl(null, Validators.required),
+      message: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
       sentBy: new FormControl(null)
     })
   }
-  messages: Array<any> = [
-    {message: "Pokusna sprava 1", sentBy: "User1"},
-    {message: "Pokusna sprava 2", sentBy: "User2"},
-    {message: "Pokusna sprava 3", sentBy: "User2"},
-    {
-      message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      sentBy: "User1"
-    },
-    {message: "Pokusna sprava 4", sentBy: "User2"},
-    {message: "Pokusna sprava 4", sentBy: "User2"},
-    {message: "Pokusna sprava 4", sentBy: "User2"},
-    {message: "Pokusna sprava 4", sentBy: "User2"},
-    {message: "Pokusna sprava 4", sentBy: "User2"},
-    {message: "Pokusna sprava 4", sentBy: "User2"},
-  ];
+
+  @Input()
+  messages?: Array<MessageResponse>;
+
+
+  @Output()
+  sendMessage = new EventEmitter<Message>;
+
 
   myMessage(m: any): boolean {
-    if(m.sentBy === "User1"){
+    if(m.sentBy === "Test"){
       return true;
     }
     return false;
@@ -45,6 +39,13 @@ export class ChatBodyComponent {
   }
 
   submit() {
-
+    if(!this.userMessage.controls['message'].invalid){
+      const message: any = {
+        messageContent: this.userMessage.controls["message"].value,
+        sentById: 9
+      }
+      this.userMessage.reset()
+      this.sendMessage.emit(message)
+    }
   }
 }

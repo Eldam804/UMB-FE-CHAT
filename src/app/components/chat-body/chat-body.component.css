@@ -16,16 +16,20 @@
   padding: 20px;
   width: auto;
   height: auto;
-  margin: auto;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .chat-box{
   width: auto;
   height: 100px;
+  position: relative;
+  bottom: 20px;
 }
 .message-box{
   margin-left: 30%;
@@ -33,10 +37,6 @@
   width: 1000px;
   height: 80px;
 }
-/*input{*/
-/*  background: linear-gradient(#00E6FF, #006DFF);*/
-
-/*}*/
 
 mat-list{
   flex-grow: 1;

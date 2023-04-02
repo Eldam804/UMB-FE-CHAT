@@ -27,6 +27,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { UserListComponent } from './user/user-list/user-list.component';
 import {MatTableModule} from "@angular/material/table";
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
         CdkVirtualScrollViewport,
         MatToolbarModule,
         MatTableModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
