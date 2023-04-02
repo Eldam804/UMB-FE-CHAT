@@ -9,7 +9,9 @@ import {Message, MessageResponse} from "../../model/message.model";
 })
 export class ChatBodyComponent {
   userMessage: FormGroup<any>;
+  currentUser: number;
   constructor() {
+    this.currentUser = 0;
     this.userMessage = new FormGroup<any>({
       message: new FormControl(null, Validators.required),
       sentBy: new FormControl(null)
@@ -42,7 +44,7 @@ export class ChatBodyComponent {
     if(!this.userMessage.controls['message'].invalid){
       const message: any = {
         messageContent: this.userMessage.controls["message"].value,
-        sentById: 0
+        sentById: this.currentUser
       }
       this.userMessage.reset()
       this.sendMessage.emit(message)
