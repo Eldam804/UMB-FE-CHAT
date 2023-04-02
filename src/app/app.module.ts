@@ -26,6 +26,7 @@ import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { UserListComponent } from './user/user-list/user-list.component';
 import {MatTableModule} from "@angular/material/table";
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {MatTableModule} from "@angular/material/table";
     PrivateChatComponent,
     ChatBodyComponent,
     UserListComponent,
+    UserProfileComponent,
   ],
     imports: [
         BrowserModule,
