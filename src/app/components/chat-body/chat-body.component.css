@@ -1,20 +1,26 @@
 .my-message{
   border-radius: 25px;
-  background: aqua;
+  background: linear-gradient(#00E6FF,#006DFF);
   padding: 20px;
   width: auto;
   height: auto;
-  margin: auto;
   text-align: center;
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
+
 }
 .user-message{
   border-radius: 25px;
-  background: aquamarine;
+  background: #cccccc;
   padding: 20px;
   width: auto;
   height: auto;
   margin: auto;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .chat-box{
@@ -27,18 +33,28 @@
   width: 1000px;
   height: 80px;
 }
+/*input{*/
+/*  background: linear-gradient(#00E6FF, #006DFF);*/
+
+/*}*/
 
 mat-list{
   flex-grow: 1;
-  border: 3px solid green;
+  /*border: 3px solid green;*/
   overflow: auto;
 }
 .container-div{
   height: 800px;
   overflow-y: auto;
   overflow-x: hidden;
-  width: 100%;
+  width: 1800px;
+  margin: auto;
 }
 .container{
   height: 30px;
+}
+.img_login{
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
 }
