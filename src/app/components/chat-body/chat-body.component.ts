@@ -9,9 +9,11 @@ import {Message, MessageResponse} from "../../model/message.model";
 })
 export class ChatBodyComponent {
   userMessage: FormGroup<any>;
-  currentUser: number;
+  @Input()
+  currentUser?: any;
+  @Input()
+  foreignUser?: number;
   constructor() {
-    this.currentUser = 0;
     this.userMessage = new FormGroup<any>({
       message: new FormControl(null, Validators.required),
       sentBy: new FormControl(null)
@@ -27,10 +29,7 @@ export class ChatBodyComponent {
 
 
   myMessage(m: any): boolean {
-    if(m.sentBy === "Test1234"){
-      return true;
-    }
-    return false;
+    return m.sentBy == this.currentUser.username;
   }
 
   getMessageError() {
@@ -41,13 +40,23 @@ export class ChatBodyComponent {
   }
 
   submit() {
-    if(!this.userMessage.controls['message'].invalid){
+    if(!this.userMessage.controls['message'].invalid) {
+      console.debug("SUBMITED: " +this.currentUser)
       const message: any = {
         messageContent: this.userMessage.controls["message"].value,
-        sentById: this.currentUser
+        sentById: this.currentUser.userId
       }
+      if (this.foreignUser != undefined) {
+        const message: any = {
+          messageContent: this.userMessage.controls["message"].value,
+          sentById: this.currentUser,
+          sentToId: this.foreignUser
+
+        }
+      }
+
       this.userMessage.reset()
       this.sendMessage.emit(message)
     }
-  }
+    }
 }

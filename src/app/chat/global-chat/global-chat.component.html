@@ -6,6 +6,7 @@
   <app-chat-body
     [messages]="messages"
     (sendMessage)="postMessage($event)"
+    [currentUser]="currentUser"
   >
   </app-chat-body>
   <app-chat-footer></app-chat-footer>

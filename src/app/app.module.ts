@@ -24,7 +24,8 @@ import { ChatBodyComponent } from './components/chat-body/chat-body.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {AuthHeaderInterceptor} from "./common/service/auth-header";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
         MatToolbarModule,
         HttpClientModule
     ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {provideRouter, Router} from "@angular/router";
+import {AuthenticationService} from "../../common/service/authentication.service";
+import {AuthModel} from "../../model/auth.model";
 
 @Component({
   selector: 'app-login-form',
@@ -11,7 +13,7 @@ export class LoginFormComponent {
   userForm: FormGroup;
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private auth: AuthenticationService) {
     this.userForm = new FormGroup({
       username: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required)
@@ -33,11 +35,16 @@ export class LoginFormComponent {
   }
 
   submit() {
-    //TODO kontrola ci uzivatel existuje -> vyrobit emit a ulozit token
-    if(this.userForm.controls["username"].value == "admin" && this.userForm.controls["password"].value == "admin"){
-      this.router.navigate(['/global-chat']);
-    }else{
-      console.log("Failure")
+    if(this.userForm.valid){
+      if(this.userForm.controls.username.value && this.userForm.controls.password.value) {
+        const user: AuthModel = {
+          username: this.userForm.controls.username.value,
+          password: this.userForm.controls.password.value
+        }
+        this.auth.login(user).subscribe(() => {
+          this.router.navigate(["/global-chat"])
+        })
+      }
     }
   }
 }
