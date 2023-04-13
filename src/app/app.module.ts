@@ -26,6 +26,9 @@ import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {AuthHeaderInterceptor} from "./common/service/auth-header";
+import { UserListComponent } from './user/user-list/user-list.component';
+import {MatTableModule} from "@angular/material/table";
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +41,10 @@ import {AuthHeaderInterceptor} from "./common/service/auth-header";
     GlobalChatComponent,
     PrivateChatComponent,
     ChatBodyComponent,
+    UserListComponent,
+    UserProfileComponent,
   ],
-  imports: [
+    imports: [
         BrowserModule,
         AppRoutingModule,
         RouterOutlet,
@@ -54,6 +59,7 @@ import {AuthHeaderInterceptor} from "./common/service/auth-header";
         MatGridListModule,
         CdkVirtualScrollViewport,
         MatToolbarModule,
+        MatTableModule,
         HttpClientModule
     ],
   providers: [

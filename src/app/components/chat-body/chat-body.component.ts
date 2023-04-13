@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Message, MessageResponse} from "../../model/message.model";
 
@@ -8,6 +8,8 @@ import {Message, MessageResponse} from "../../model/message.model";
   styleUrls: ['./chat-body.component.css']
 })
 export class ChatBodyComponent {
+  @ViewChild("messageContainer") private messageContainer!: ElementRef;
+
   userMessage: FormGroup<any>;
   @Input()
   currentUser?: any;
@@ -15,7 +17,7 @@ export class ChatBodyComponent {
   foreignUser?: number;
   constructor() {
     this.userMessage = new FormGroup<any>({
-      message: new FormControl(null, Validators.required),
+      message: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
       sentBy: new FormControl(null)
     })
   }
@@ -40,8 +42,8 @@ export class ChatBodyComponent {
   }
 
   submit() {
-    if(!this.userMessage.controls['message'].invalid) {
-      console.debug("SUBMITED: " +this.currentUser)
+    if (!this.userMessage.controls['message'].invalid) {
+      console.debug("SUBMITED: " + this.currentUser)
       const message: any = {
         messageContent: this.userMessage.controls["message"].value,
         sentById: this.currentUser.userId
@@ -49,14 +51,19 @@ export class ChatBodyComponent {
       if (this.foreignUser != undefined) {
         const message: any = {
           messageContent: this.userMessage.controls["message"].value,
-          sentById: this.currentUser,
+          sentById: this.currentUser.userId,
           sentToId: this.foreignUser
-
         }
       }
 
       this.userMessage.reset()
       this.sendMessage.emit(message)
+      const messageC = document.getElementById('messageContainer');
+      setTimeout(() => {
+        if (messageC)
+          messageC.scrollTo(0, messageC.scrollHeight);
+        //this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
+      }, 0)
     }
-    }
+  }
 }

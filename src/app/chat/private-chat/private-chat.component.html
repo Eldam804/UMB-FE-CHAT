@@ -2,6 +2,11 @@
   <app-chat-header
     [name]="'Private chat'"
   ></app-chat-header>
-  <app-chat-body></app-chat-body>
+  <app-chat-body
+    [messages]="messages"
+    (sendMessage)="postMessage($event)"
+    [currentUser]="currentUser"
+    [foreignUser]="foreignUser"
+  ></app-chat-body>
   <app-chat-footer></app-chat-footer>
 </div>

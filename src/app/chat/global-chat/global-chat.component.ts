@@ -26,6 +26,7 @@ export class GlobalChatComponent {
   postMessage(message: any): void {
     this.service.postGlobalMessage(message).subscribe( () => {
       this.getAllMessages();
+      //scroll();
     })
 
   }
