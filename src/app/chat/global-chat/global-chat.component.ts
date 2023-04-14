@@ -24,6 +24,7 @@ export class GlobalChatComponent {
 
 
   postMessage(message: any): void {
+    console.log(this.currentUser);
     this.service.postGlobalMessage(message).subscribe( () => {
       this.getAllMessages();
       //scroll();
@@ -38,6 +39,6 @@ export class GlobalChatComponent {
         username: user.username
       }
     })
-    console.log(this.currentUser);
+    console.log("CURRENT USER ID: ", this.currentUser);
   }
 }

@@ -43,7 +43,7 @@ export class ChatBodyComponent {
 
   submit() {
     if (!this.userMessage.controls['message'].invalid) {
-      console.debug("SUBMITED: " + this.currentUser)
+      //console.debug("SUBMITED: " + this.currentUser)
       const message: any = {
         messageContent: this.userMessage.controls["message"].value,
         sentById: this.currentUser.userId
@@ -63,7 +63,7 @@ export class ChatBodyComponent {
         if (messageC)
           messageC.scrollTo(0, messageC.scrollHeight);
         //this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
-      }, 0)
+      }, 1000)
     }
   }
 }
