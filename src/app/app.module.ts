@@ -30,6 +30,7 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import {MatTableModule} from "@angular/material/table";
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import {UserFormComponent} from "./user/user-form/user-form.component";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import {UserFormComponent} from "./user/user-form/user-form.component";
         CdkVirtualScrollViewport,
         MatToolbarModule,
         MatTableModule,
-        HttpClientModule
+        HttpClientModule,
+        NgbModule
     ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true}
