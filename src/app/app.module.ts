@@ -29,6 +29,7 @@ import {AuthHeaderInterceptor} from "./common/service/auth-header";
 import { UserListComponent } from './user/user-list/user-list.component';
 import {MatTableModule} from "@angular/material/table";
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import {UserFormComponent} from "./user/user-form/user-form.component";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
     ChatBodyComponent,
     UserListComponent,
     UserProfileComponent,
+    UserFormComponent
   ],
     imports: [
         BrowserModule,
