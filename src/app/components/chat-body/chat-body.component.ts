@@ -20,6 +20,7 @@ export class ChatBodyComponent {
       message: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
       sentBy: new FormControl(null)
     })
+    //this.scrollToBottom()
   }
 
   @Input()
@@ -39,6 +40,15 @@ export class ChatBodyComponent {
       return "Can't send empty text"
     }
     return ""
+  }
+
+  scrollToBottom() {
+    const messageC = document.getElementById('messageContainer');
+    setTimeout(() => {
+      if (messageC)
+        messageC.scrollTo(0, messageC.scrollHeight);
+      //this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
+    }, 5000)
   }
 
   submit() {
