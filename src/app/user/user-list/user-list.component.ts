@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import {PrivateChatService} from "../../common/service/private-chat.service";
+import {UserService} from "../../common/service/user.service";
 
 @Component({
   selector: 'app-user-list',
@@ -7,37 +10,20 @@ import { Component } from '@angular/core';
 })
 export class UserListComponent {
   displayedColumns: Array<String> = ['picture', 'username', 'displayedColumns'];
-  dataSource: Array<any> = [
-    {userId: 1, username: "Carl"},
-    {userId: 2, username: "Michael"},
-    {userId: 3, username: "Adam"},
-    {userId: 4, username: "Thomas"},
-    {userId: 5, username: "Clara"},
-    {userId: 6, username: "Jane"},
-    {userId: 7, username: "Nick"},
-    {userId: 8, username: "Mark"},
-    {userId: 9, username: "Samuel"},
-    {userId: 1, username: "Carl"},
-    {userId: 2, username: "Michael"},
-    {userId: 3, username: "Adam"},
-    {userId: 4, username: "Thomas"},
-    {userId: 5, username: "Clara"},
-    {userId: 6, username: "Jane"},
-    {userId: 7, username: "Nick"},
-    {userId: 8, username: "Mark"},
-    {userId: 9, username: "Samuel"},
-    {userId: 1, username: "Carl"},
-    {userId: 2, username: "Michael"},
-    {userId: 3, username: "Adam"},
-    {userId: 4, username: "Thomas"},
-    {userId: 5, username: "Clara"},
-    {userId: 6, username: "Jane"},
-    {userId: 7, username: "Nick"},
-    {userId: 8, username: "Mark"},
-    {userId: 9, username: "Samuel"}
-  ];
+  dataSource: Array<any> = [];
+
+  constructor(private userService: UserService, private router: Router) {
+    this.getAllUsers();
+  }
 
   onButtonClick(userId: number) {
-    console.log("Button clicked: ", userId);
+    this.userService.setForeignUserId(userId.toString());
+    this.router.navigate(["private-chat"])
+  }
+
+  private getAllUsers() {
+    this.userService.getAllUsers().subscribe((users: any) => {
+      this.dataSource = users;
+    })
   }
 }

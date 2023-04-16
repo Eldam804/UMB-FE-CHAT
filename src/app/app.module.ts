@@ -24,10 +24,13 @@ import { ChatBodyComponent } from './components/chat-body/chat-body.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {AuthHeaderInterceptor} from "./common/service/auth-header";
 import { UserListComponent } from './user/user-list/user-list.component';
 import {MatTableModule} from "@angular/material/table";
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {UserFormComponent} from "./user/user-form/user-form.component";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     ChatBodyComponent,
     UserListComponent,
     UserProfileComponent,
+    UserFormComponent
   ],
     imports: [
         BrowserModule,
@@ -59,9 +63,12 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
         CdkVirtualScrollViewport,
         MatToolbarModule,
         MatTableModule,
-        HttpClientModule
+        HttpClientModule,
+        NgbModule
     ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

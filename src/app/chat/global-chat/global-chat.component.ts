@@ -10,7 +10,9 @@ import {MessageResponse} from "../../model/message.model";
 export class GlobalChatComponent {
 
   messages?: Array<MessageResponse>;
+  currentUser?: any;
   constructor(private service: GlobalChatService) {
+    this.getUserId();
     this.getAllMessages();
   }
 
@@ -22,9 +24,21 @@ export class GlobalChatComponent {
 
 
   postMessage(message: any): void {
+    console.log(this.currentUser);
     this.service.postGlobalMessage(message).subscribe( () => {
       this.getAllMessages();
+      //scroll();
     })
 
+  }
+
+  private async getUserId() {
+    await this.service.getUserId().subscribe((user: any) => {
+      this.currentUser = {
+        userId: user.id,
+        username: user.username
+      }
+    })
+    console.log("CURRENT USER ID: ", this.currentUser);
   }
 }

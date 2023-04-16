@@ -9,3 +9,14 @@ export interface MessageResponse {
   content: string,
   sentBy: string
 }
+
+export interface MessageRequest {
+  userId: number,
+  foreignId: number
+}
+
+export interface PrivateMessage {
+  messageContent: String,
+  sentBy: number,
+  sentTo: number
+}

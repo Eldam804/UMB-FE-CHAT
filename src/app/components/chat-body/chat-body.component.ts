@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Message, MessageResponse} from "../../model/message.model";
 
@@ -8,7 +8,13 @@ import {Message, MessageResponse} from "../../model/message.model";
   styleUrls: ['./chat-body.component.css']
 })
 export class ChatBodyComponent {
+  @ViewChild("messageContainer") private messageContainer!: ElementRef;
+
   userMessage: FormGroup<any>;
+  @Input()
+  currentUser?: any;
+  @Input()
+  foreignUser?: number;
   constructor() {
     this.userMessage = new FormGroup<any>({
       message: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
@@ -25,10 +31,7 @@ export class ChatBodyComponent {
 
 
   myMessage(m: any): boolean {
-    if(m.sentBy === "Test"){
-      return true;
-    }
-    return false;
+    return m.sentBy == this.currentUser.username;
   }
 
   getMessageError() {
@@ -39,13 +42,30 @@ export class ChatBodyComponent {
   }
 
   submit() {
-    if(!this.userMessage.controls['message'].invalid){
-      const message: any = {
-        messageContent: this.userMessage.controls["message"].value,
-        sentById: 9
+    if (!this.userMessage.controls['message'].invalid) {
+      //console.debug("SUBMITED: " + this.currentUser)
+      let message: any = {};
+      if (this.foreignUser != undefined) {
+        message = {
+          messageContent: this.userMessage.controls["message"].value,
+          sentById: this.currentUser.userId,
+          sentToId: this.foreignUser
+        }
+      }else{
+        message = {
+          messageContent: this.userMessage.controls["message"].value,
+          sentById: this.currentUser.userId
+        }
       }
+      console.log(message);
       this.userMessage.reset()
       this.sendMessage.emit(message)
+      const messageC = document.getElementById('messageContainer');
+      setTimeout(() => {
+        if (messageC)
+          messageC.scrollTo(0, messageC.scrollHeight);
+        //this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
+      }, 600)
     }
   }
 }
