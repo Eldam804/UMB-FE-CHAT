@@ -44,18 +44,20 @@ export class ChatBodyComponent {
   submit() {
     if (!this.userMessage.controls['message'].invalid) {
       //console.debug("SUBMITED: " + this.currentUser)
-      const message: any = {
-        messageContent: this.userMessage.controls["message"].value,
-        sentById: this.currentUser.userId
-      }
+      let message: any = {};
       if (this.foreignUser != undefined) {
-        const message: any = {
+        message = {
           messageContent: this.userMessage.controls["message"].value,
           sentById: this.currentUser.userId,
           sentToId: this.foreignUser
         }
+      }else{
+        message = {
+          messageContent: this.userMessage.controls["message"].value,
+          sentById: this.currentUser.userId
+        }
       }
-
+      console.log(message);
       this.userMessage.reset()
       this.sendMessage.emit(message)
       const messageC = document.getElementById('messageContainer');
@@ -63,7 +65,7 @@ export class ChatBodyComponent {
         if (messageC)
           messageC.scrollTo(0, messageC.scrollHeight);
         //this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
-      }, 1000)
+      }, 600)
     }
   }
 }

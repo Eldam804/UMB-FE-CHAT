@@ -19,7 +19,11 @@ export class PrivateChatComponent {
     //this.getAllPrivateMessages();
   }
   postMessage(message: any): void {
-    this.service.postPrivateMessage(message).subscribe( () => {
+    const messageSent: any = {
+      messageContent: message.messageContent,
+      sentById: message.sentById,
+    }
+    this.service.postPrivateMessage(messageSent, this.foreignUser).subscribe( () => {
       this.getAllPrivateMessages();
     })
   }

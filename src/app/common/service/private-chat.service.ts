@@ -16,8 +16,8 @@ export class PrivateChatService {
   getALlPrivateMessages(messageRequest: any):Observable<Array<MessageResponse>>{
     return this.http.get<Array<MessageResponse>>(this.url + "/" + messageRequest.userId + "/" + messageRequest.foreignId);
   }
-  postPrivateMessage(privateMessage:PrivateMessage):Observable<void>{
-    return this.http.post<void>(this.url, privateMessage);
+  postPrivateMessage(privateMessage:PrivateMessage, sentTo: number):Observable<void>{
+    return this.http.post<void>(this.url + "/" + sentTo, privateMessage);
   }
   getUserId(): Observable<any>{
     return this.http.get<any>(this.userApiUrl + "/" + this.authentication.getToken());
