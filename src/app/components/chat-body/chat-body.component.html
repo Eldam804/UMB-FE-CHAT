@@ -1,20 +1,21 @@
 <div class="container-div" id="messageContainer">
-<mat-grid-list cols="3" rowHeight="8:1" class="container"*ngFor="let m of messages">
-  <mat-grid-tile>
-    <span *ngIf="!myMessage(m)" class="user-message">
+  <div class="grid_containere"*ngFor="let m of messages">
+    <div class="grid_item item1" *ngIf="!myMessage(m)">
       <img src="assets/login.png" class="img_login">
-      {{m.content}}
-    </span>
-  </mat-grid-tile>
-  <mat-grid-tile> </mat-grid-tile>
-  <mat-grid-tile>
-    <span *ngIf="myMessage(m)" class="my-message">
-      {{m.content}}
-    </span>
-  </mat-grid-tile>
-</mat-grid-list>
-
+      <span class="user_name">{{m.sentBy}}</span><br>
+      <span class="user-message">
+        {{m.content}}
+      </span>
+    </div>
+<!--    <div class="grid_item item2">    </div>-->
+    <div class="grid_item item3">
+      <span *ngIf="myMessage(m)" class="my-message">
+        {{m.content}}
+      </span>
+    </div>
+  </div>
 </div>
+
 <div class="chat-box">
   <form [formGroup]="userMessage" (ngSubmit)="submit()">
     <mat-form-field class="message-box">
@@ -22,7 +23,7 @@
       <button mat-button matSuffix mat-stroked-button color="primary" [disabled]="userMessage.invalid" type="submit">
         <mat-icon>send</mat-icon>
       </button>
-      <mat-error *ngIf="userMessage.controls.message.invalid">{{getMessageError()}}</mat-error>
+<!--      <mat-error *ngIf="userMessage.controls.message.invalid">{{getMessageError()}}</mat-error>-->
     </mat-form-field>
   </form>
 </div>
