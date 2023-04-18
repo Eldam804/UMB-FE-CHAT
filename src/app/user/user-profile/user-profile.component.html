@@ -1,9 +1,15 @@
-<app-chat-header></app-chat-header>
-<div class="userprofile">
-<img src="assets/login.png">
-<span>TestUser</span><br>
-<span>About me</span><br>
-<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, doloribus eum excepturi</span><br>
-<span>Date join</span><br>
-</div>
-<app-chat-footer></app-chat-footer>
+<h1 mat-dialog-title>User profile
+  <button class="close" mat-icon-button (click)="onNoclick()">
+    <mat-icon>close</mat-icon>
+  </button>
+</h1>
+<mat-dialog-content class="mat-typography">
+  <span>Username: {{data.username}}</span>
+  <span>Join date: {{data.joinDate}}</span>
+  <span>Description: {{data.description}}</span>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions" align="center">
+  <button mat-raised-button color="warn" class="button" (click)="logout()">
+    Logout
+  </button>
+</mat-dialog-actions>
