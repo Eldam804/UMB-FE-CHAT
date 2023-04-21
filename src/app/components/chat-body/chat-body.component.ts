@@ -1,4 +1,14 @@
-import {Component, ElementRef, EventEmitter, Input, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {
+  AfterContentChecked, AfterContentInit, AfterViewChecked,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  QueryList,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Message, MessageResponse} from "../../model/message.model";
 import {MatMenuTrigger} from "@angular/material/menu";
@@ -8,7 +18,7 @@ import {MatMenuTrigger} from "@angular/material/menu";
   templateUrl: './chat-body.component.html',
   styleUrls: ['./chat-body.component.css']
 })
-export class ChatBodyComponent {
+export class ChatBodyComponent implements AfterViewChecked{
   @ViewChild("messageContainer") private messageContainer!: ElementRef;
 
   userMessage: FormGroup<any>;
@@ -21,7 +31,11 @@ export class ChatBodyComponent {
       message: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
       sentBy: new FormControl(null)
     })
-    //this.scrollToBottom()
+    this.scrollToBottom()
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 
   @Input()
@@ -90,6 +104,10 @@ export class ChatBodyComponent {
   addEmoji(emojiCode: string): void {
     const message = this.userMessage.controls["message"].value;
     let emoji: string = emojiCode
-    this.userMessage.controls["message"].setValue(message + emoji);
+    if(message == null){
+      this.userMessage.controls["message"].setValue(emoji);
+    }else{
+      this.userMessage.controls["message"].setValue(message + emoji);
+    }
   }
 }
