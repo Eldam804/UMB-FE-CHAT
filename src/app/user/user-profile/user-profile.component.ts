@@ -1,5 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {AuthenticationService} from "../../common/service/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-profile',
@@ -8,7 +10,9 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class UserProfileComponent {
   constructor(
+    private service: AuthenticationService,
     public dialogRef: MatDialogRef<UserProfileComponent>,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   )
   {}
@@ -18,6 +22,11 @@ export class UserProfileComponent {
   }
 
   logout(): void {
-
+    this.service.logout().subscribe(() => {
+      this.dialogRef.close();
+      this.router.navigate(["/login"]);
+      localStorage.removeItem("token");
+      localStorage.clear();
+    })
   }
 }

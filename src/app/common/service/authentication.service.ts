@@ -8,6 +8,7 @@ import {AuthModel} from "../../model/auth.model";
 })
 export class AuthenticationService {
   private apiUrl = "http://localhost:8080/api/login"
+  private logoutUrl = "http://localhost:8080/api/logout"
   constructor(private http: HttpClient) {
 
   }
@@ -32,7 +33,7 @@ export class AuthenticationService {
   }
 
   logout(): Observable<any>{
-    return this.http.delete(this.apiUrl, {});
+    return this.http.delete(this.logoutUrl, {});
   }
 
   private setToken(authorization: string) {
