@@ -1,6 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Message, MessageResponse} from "../../model/message.model";
+import {MatMenuTrigger} from "@angular/material/menu";
 
 @Component({
   selector: 'app-chat-body',
@@ -29,6 +30,14 @@ export class ChatBodyComponent {
 
   @Output()
   sendMessage = new EventEmitter<Message>;
+  emojis: any = [
+    {emojiCode: "😀"},
+    {emojiCode: "😁"},
+    {emojiCode: "😂"},
+    {emojiCode: "😃"},
+    {emojiCode: "😄"},
+    {emojiCode: "😅"}
+  ]
 
 
   myMessage(m: any): boolean {
@@ -77,5 +86,10 @@ export class ChatBodyComponent {
         //this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
       }, 600)
     }
+  }
+  addEmoji(emojiCode: string): void {
+    const message = this.userMessage.controls["message"].value;
+    let emoji: string = emojiCode
+    this.userMessage.controls["message"].setValue(message + emoji);
   }
 }

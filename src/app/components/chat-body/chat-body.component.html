@@ -20,6 +20,14 @@
   <form [formGroup]="userMessage" (ngSubmit)="submit()">
     <mat-form-field class="message-box">
       <input matInput formControlName="message">
+      <button mat-button matSuffix mat-stroked-button color="primary" [matMenuTriggerFor]="menu" type="button">
+        <mat-icon>add_reaction</mat-icon>
+      </button>
+      <mat-menu #menu>
+        <div  *ngFor="let em of emojis">
+          <button mat-menu-item (click)="addEmoji(em.emojiCode)">{{em.emojiCode}}</button>
+        </div>
+      </mat-menu>
       <button mat-button matSuffix mat-stroked-button color="primary" [disabled]="userMessage.invalid" type="submit">
         <mat-icon>send</mat-icon>
       </button>
