@@ -1,11 +1,14 @@
 span{
-  background-color: #00E6FF;
   align-content: center;
   display: flex;
-  justify-content: center;
 
 }
-img{
-  width: 200px;
-  margin: auto;
+
+.close{
+  margin-left: 20px;
+}
+
+.button{
+  width: 85%;
+
 }
