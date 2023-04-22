@@ -50,7 +50,8 @@ export class ChatBodyComponent implements AfterViewChecked{
     {emojiCode: "😂"},
     {emojiCode: "😃"},
     {emojiCode: "😄"},
-    {emojiCode: "😅"}
+    {emojiCode: "😅"},
+    {emojiCode: "🧡"}
   ]
 
 

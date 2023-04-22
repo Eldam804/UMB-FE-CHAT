@@ -29,7 +29,7 @@
   width: 100%;
   height: 100px;
   position: relative;
-  bottom: -3vh;
+  bottom: -1vh;
 }
 .message-box{
   display: block;
@@ -39,10 +39,10 @@
 }
 
 .container-div{
-  height: 750px;
+  height: 75vh;
   overflow-y: auto;
   overflow-x: hidden;
-  width: 80%;
+  width: 95%;
   margin: auto;
 }
 .grid_container{
