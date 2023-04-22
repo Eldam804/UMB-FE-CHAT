@@ -7,11 +7,16 @@ import {PrivateChatComponent} from "./chat/private-chat/private-chat.component";
 import {GuardService} from "./common/service/guard.service";
 import {UserListComponent} from "./user/user-list/user-list.component";
 import {UserProfileComponent} from "./user/user-profile/user-profile.component";
+import {RegisterPageComponent} from "./register/register-page/register-page.component";
 
 const router: Routes = [
   {
   path: "login",
   component: LoginPageComponent,
+  },
+  {
+    path: "register",
+    component: RegisterPageComponent,
   },
   {
     path: "global-chat",
