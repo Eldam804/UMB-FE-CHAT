@@ -36,6 +36,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import { RegisterPageComponent } from './register/register-page/register-page.component';
 import { RegisterFormComponent } from './register/register-form/register-form.component';
 import {MatStepperModule} from "@angular/material/stepper";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import {MatStepperModule} from "@angular/material/stepper";
     UserProfileComponent,
     UserFormComponent,
     RegisterPageComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +75,8 @@ import {MatStepperModule} from "@angular/material/stepper";
     NgbModule,
     MatDialogModule,
     MatMenuModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSnackBarModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true}

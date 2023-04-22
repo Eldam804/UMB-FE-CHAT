@@ -2,8 +2,8 @@
   <mat-card-title>Register</mat-card-title>
   <mat-card-content>
     <mat-stepper orientation="horizontal" [linear]="isLinear" #stepper>
-      <mat-step [stepControl]="userForm">
-        <form [formGroup]="userForm" (ngSubmit)="submit()">
+      <mat-step [stepControl]="userForm" label="Fill out your details">
+        <form [formGroup]="userForm" (ngSubmit)="submit(stepper)">
           <mat-form-field>
             <mat-label>EMAIL:</mat-label>
             <input matInput formControlName="email">
@@ -24,14 +24,14 @@
           <br>
           <mat-form-field>
             <mat-label>PROFILE DESCRIPTION:</mat-label>
-            <input matInput formControlName="description" type="password">
+            <input matInput formControlName="description">
             <mat-error *ngIf="userForm.controls.description.invalid">{{getDescriptionError()}}</mat-error>
           </mat-form-field>
           <br>
-          <button mat-fab extended color="primary" [disabled]="userForm.invalid" type="submit" matStepperNext>REGISTER</button>
+          <button mat-fab extended color="primary" [disabled]="userForm.invalid" type="submit">REGISTER</button>
         </form>
       </mat-step>
-      <mat-step [stepControl]="uniqueCodeForm">
+      <mat-step [stepControl]="uniqueCodeForm" label="Email verification">
       <form [formGroup]="uniqueCodeForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <mat-label>Enter verification code:</mat-label>

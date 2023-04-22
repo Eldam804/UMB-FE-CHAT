@@ -47,4 +47,8 @@ export class LoginFormComponent {
       }
     }
   }
+
+  goToRegister() {
+    this.router.navigate(["/register"]);
+  }
 }

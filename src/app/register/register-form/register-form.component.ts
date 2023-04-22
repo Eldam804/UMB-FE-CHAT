@@ -1,19 +1,23 @@
-import { Component } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {RegisterService} from "../../common/service/register.service";
 import {Router} from "@angular/router";
+import {catchError, throwError} from "rxjs";
+import {MatStepper} from "@angular/material/stepper";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.css']
+  styleUrls: ['./register-form.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RegisterFormComponent {
   userForm: any;
   uniqueCodeForm: any;
   isLinear: boolean;
   createdUser: any;
-  constructor(private service: RegisterService, private router: Router) {
+  constructor(private service: RegisterService, private router: Router, private snackbar: MatSnackBar) {
     this.isLinear = true;
     this.userForm = new FormGroup({
       email: new FormControl(null, [Validators.email, Validators.required]),
@@ -26,19 +30,32 @@ export class RegisterFormComponent {
     });
   }
 
-  submit() {
+  submit(stepper: MatStepper) {
     const user: any = {
       username: this.userForm.controls.username.value,
       password: this.userForm.controls.password.value,
       email: this.userForm.controls.email.value,
       description: this.userForm.controls.description.value
     }
-    this.service.registerUser(user).subscribe((data) => {
+    this.service.registerUser(user).pipe(
+      catchError((error, caught) => {
+        if(error.status === 401){
+          this.snackbar.open("Username already exists", "Close", {
+            verticalPosition: "top",
+            politeness: "assertive"
+          });
+        }
+        return throwError(error);
+      })
+      )
+      .subscribe((data) => {
       this.createdUser = {
         id: data.id,
         username: data.username,
         joinDate: data.joinDate
       }
+      stepper.next();
+
     })
   }
   onSubmit() {
