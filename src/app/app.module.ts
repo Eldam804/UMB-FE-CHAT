@@ -32,6 +32,7 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
 import {UserFormComponent} from "./user/user-form/user-form.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {MatDialogModule} from "@angular/material/dialog";
         MatTableModule,
         HttpClientModule,
         NgbModule,
-        MatDialogModule
+        MatDialogModule,
+        MatMenuModule
     ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true}

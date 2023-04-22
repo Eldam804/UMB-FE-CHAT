@@ -1,13 +1,24 @@
-import {Component, ElementRef, EventEmitter, Input, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {
+  AfterContentChecked, AfterContentInit, AfterViewChecked,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  QueryList,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Message, MessageResponse} from "../../model/message.model";
+import {MatMenuTrigger} from "@angular/material/menu";
 
 @Component({
   selector: 'app-chat-body',
   templateUrl: './chat-body.component.html',
   styleUrls: ['./chat-body.component.css']
 })
-export class ChatBodyComponent {
+export class ChatBodyComponent implements AfterViewChecked{
   @ViewChild("messageContainer") private messageContainer!: ElementRef;
 
   userMessage: FormGroup<any>;
@@ -20,7 +31,11 @@ export class ChatBodyComponent {
       message: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
       sentBy: new FormControl(null)
     })
-    //this.scrollToBottom()
+    this.scrollToBottom()
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 
   @Input()
@@ -29,6 +44,14 @@ export class ChatBodyComponent {
 
   @Output()
   sendMessage = new EventEmitter<Message>;
+  emojis: any = [
+    {emojiCode: "😀"},
+    {emojiCode: "😁"},
+    {emojiCode: "😂"},
+    {emojiCode: "😃"},
+    {emojiCode: "😄"},
+    {emojiCode: "😅"}
+  ]
 
 
   myMessage(m: any): boolean {
@@ -76,6 +99,15 @@ export class ChatBodyComponent {
           messageC.scrollTo(0, messageC.scrollHeight);
         //this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
       }, 600)
+    }
+  }
+  addEmoji(emojiCode: string): void {
+    const message = this.userMessage.controls["message"].value;
+    let emoji: string = emojiCode
+    if(message == null){
+      this.userMessage.controls["message"].setValue(emoji);
+    }else{
+      this.userMessage.controls["message"].setValue(message + emoji);
     }
   }
 }
