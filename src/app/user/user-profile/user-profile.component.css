@@ -1,14 +1,13 @@
+.dialog{
+  width: 500px;
+}
 span{
   align-content: center;
   display: flex;
-
 }
-
 .close{
   margin-left: 20px;
 }
-
 .button{
   width: 85%;
-
 }
