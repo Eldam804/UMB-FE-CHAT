@@ -71,7 +71,7 @@ export class ChatBodyComponent implements AfterViewChecked{
       if (messageC)
         messageC.scrollTo(0, messageC.scrollHeight);
       //this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
-    }, 5000)
+    }, 1000)
   }
 
   submit() {
