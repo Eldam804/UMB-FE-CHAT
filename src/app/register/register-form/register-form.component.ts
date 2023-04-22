@@ -28,10 +28,10 @@ export class RegisterFormComponent {
 
   submit() {
     const user: any = {
-      username: this.userForm.controls.username,
-      password: this.userForm.controls.password,
-      email: this.userForm.controls.email,
-      description: this.userForm.controls.description
+      username: this.userForm.controls.username.value,
+      password: this.userForm.controls.password.value,
+      email: this.userForm.controls.email.value,
+      description: this.userForm.controls.description.value
     }
     this.service.registerUser(user).subscribe((data) => {
       this.createdUser = {

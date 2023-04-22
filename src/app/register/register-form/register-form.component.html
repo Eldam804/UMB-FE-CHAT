@@ -28,7 +28,7 @@
             <mat-error *ngIf="userForm.controls.description.invalid">{{getDescriptionError()}}</mat-error>
           </mat-form-field>
           <br>
-          <button mat-fab extended color="primary" [disabled]="userForm.invalid" type="submit" matStepperNext>REGISTER</button>
+          <button mat-fab extended color="primary" [disabled]="userForm.invalid" type="submit" (click)="submit()" matStepperNext>REGISTER</button>
         </form>
       </mat-step>
       <mat-step [stepControl]="uniqueCodeForm">

@@ -9,7 +9,9 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const exclude = 'api/login'
-    if(req.url.search(exclude) === -1){
+    const exclude1 = 'api/register'
+    const exclude2 = 'api/validate/**'
+    if(req.url.search(exclude) === -1 || req.url.search(exclude1) === -1 || req.url.search(exclude2) === -1){
       const token = this.auth.getToken();
       if(token !== null){
         req = req.clone({headers: req.headers.append('Authorization', token)});
