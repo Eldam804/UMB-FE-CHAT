@@ -42,7 +42,7 @@ export class RegisterFormComponent {
     })
   }
   onSubmit() {
-    this.service.validateUser(this.createdUser.id, this.uniqueCodeForm.controls.code).subscribe(() => {
+    this.service.validateUser(this.createdUser.id, this.uniqueCodeForm.controls.code.value).subscribe(() => {
       this.router.navigate(["/login"]);
     })
   }
