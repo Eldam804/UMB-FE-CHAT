@@ -1,15 +1,17 @@
-<h1 mat-dialog-title>User profile
+<div class="dialog">
+<h1 mat-dialog-title class="dialog">User profile
   <button class="close" mat-icon-button (click)="onNoclick()">
     <mat-icon>close</mat-icon>
   </button>
 </h1>
-<mat-dialog-content class="mat-typography">
+<mat-dialog-content class="mat-typography dialog">
   <span>Username: {{data.username}}</span>
   <span>Join date: {{data.joinDate}}</span>
   <span>Description: {{data.description}}</span>
 </mat-dialog-content>
-<mat-dialog-actions class="dialog-actions" align="center">
+<mat-dialog-actions class="dialog-actions dialog" align="center">
   <button mat-raised-button color="warn" class="button" (click)="logout()">
     Logout
   </button>
 </mat-dialog-actions>
+</div>

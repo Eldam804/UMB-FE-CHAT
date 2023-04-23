@@ -1,7 +1,10 @@
 <div>
   <app-chat-header
-    [name]="'User list'"
+    [name]="currentUser.username"
+    [title]="'User list'"
   ></app-chat-header>
+
+
 
   <div class="container-div">
   <mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
@@ -23,7 +26,7 @@
       mat-row
       *matRowDef="let row;
       columns: displayedColumns;"
-      (click)="onButtonClick(row.id)"
+      (click)="onButtonClick(row.id, row.username)"
     ></tr>
   </mat-table>
   </div>

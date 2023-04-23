@@ -10,11 +10,12 @@ import {Router} from "@angular/router";
 })
 export class PrivateChatComponent {
   messages: any;
-  currentUser: any;
+  currentUser: any = "";
   foreignUser: any;
-
+  foreignUsername: any;
   constructor(private service: PrivateChatService, private router: Router) {
     this.foreignUser = this.getForeignId();
+    this.foreignUsername = this.getForeignUsername();
     this.getUserId();
     //this.getAllPrivateMessages();
     setInterval(() => {
@@ -42,10 +43,12 @@ export class PrivateChatComponent {
   }
   private getUserId() {
     this.service.getUserId().subscribe((user: any) => {
-      console.log("USER RETURNED: "+ user.id + user.username);
+      console.log("USER RETURNED: "+ user.id + user.username+ user.description + user.joinDate);
       this.currentUser = {
         userId: user.id,
-        username: user.username
+        username: user.username,
+        description: user.description ,
+        joinDate : user.joinDate
       }
       console.log("CURRENT USER ID: "+this.currentUser.userId)
       this.getAllPrivateMessages()
@@ -61,4 +64,12 @@ export class PrivateChatComponent {
     }
   }
 
+  private getForeignUsername(): any {
+  let username: string = this.service.getForeignUsername();
+  if(username == ""){
+    this.router.navigate(["/user-list"]);
+  }else{
+    return username;
+  }
+  }
 }

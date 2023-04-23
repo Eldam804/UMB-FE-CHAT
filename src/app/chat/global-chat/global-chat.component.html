@@ -1,6 +1,7 @@
 <div>
   <app-chat-header
-    [name]="'General chat'"
+    [name]="currentUser.username"
+    [title]="'Global Chat'"
   >
   </app-chat-header>
   <app-chat-body

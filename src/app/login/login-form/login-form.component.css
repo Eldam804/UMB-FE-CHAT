@@ -4,14 +4,31 @@ mat-card{
 mat-form-field{
   width: 350px;
 }
-button{
+.login_button{
   width: 100%;
   background: linear-gradient(#00E6FF, #006DFF);
   color: white;
+  margin-bottom: 10px;
 }
-
+.login_nav{
+  width: 50%;
+  margin-bottom: 15px;
+}
+.login_nav:nth-child(1){
+  background: linear-gradient(#00E6FF, #006DFF);
+  color: white;
+  border-radius: 25px 0 0 25px;
+  box-shadow: transparent;
+}
+.login_nav:nth-child(2){
+  background-color: white;
+  color: #666;
+  border-radius: 0 25px 25px 0;
+}
 mat-card-content, mat-card-title{
   display: flex;
   justify-content: center;
 }
-
+b{
+  cursor: pointer;
+}

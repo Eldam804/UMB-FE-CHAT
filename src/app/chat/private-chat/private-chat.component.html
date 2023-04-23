@@ -1,7 +1,9 @@
 <div>
   <app-chat-header
-    [name]="'Private chat'"
+    [name]="currentUser.username"
+    [title]="foreignUsername"
   ></app-chat-header>
+<!--  [title]="foreignUser..."-->
   <app-chat-body
     [messages]="messages"
     (sendMessage)="postMessage($event)"
