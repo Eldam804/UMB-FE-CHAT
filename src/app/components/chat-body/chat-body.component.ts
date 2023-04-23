@@ -28,10 +28,10 @@ export class ChatBodyComponent implements AfterViewChecked{
   foreignUser?: number;
   constructor() {
     this.userMessage = new FormGroup<any>({
-      message: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
+      message: new FormControl(null, [Validators.required]),
       sentBy: new FormControl(null)
     })
-    this.scrollToBottom()
+    //this.scrollToBottom()
   }
 
   ngAfterViewChecked() {
@@ -67,11 +67,8 @@ export class ChatBodyComponent implements AfterViewChecked{
 
   scrollToBottom() {
     const messageC = document.getElementById('messageContainer');
-    setTimeout(() => {
-      if (messageC)
-        messageC.scrollTo(0, messageC.scrollHeight);
-      //this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
-    }, 1000)
+    if (messageC)
+      messageC.scrollTo(0, messageC.scrollHeight);
   }
 
   submit() {
