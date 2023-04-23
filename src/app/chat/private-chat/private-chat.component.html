@@ -1,6 +1,7 @@
 <div>
   <app-chat-header
-    [name]="'Private chat'"
+    [name]="currentUser.username"
+    [title]="'Private Chat'"
   ></app-chat-header>
   <app-chat-body
     [messages]="messages"

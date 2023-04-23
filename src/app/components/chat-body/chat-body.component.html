@@ -24,8 +24,8 @@
         <mat-icon>add_reaction</mat-icon>
       </button>
       <mat-menu #menu>
-        <div  *ngFor="let em of emojis">
-          <button mat-menu-item (click)="addEmoji(em.emojiCode)">{{em.emojiCode}}</button>
+        <div  *ngFor="let em of emojis" class="emoji">
+          <button mat-menu-item (click)="addEmoji(em.emojiCode)" class="emoji_button">{{em.emojiCode}}</button>
         </div>
       </mat-menu>
       <button mat-button matSuffix mat-stroked-button color="primary" [disabled]="userMessage.invalid" type="submit">

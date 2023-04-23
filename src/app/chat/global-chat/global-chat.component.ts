@@ -16,7 +16,7 @@ export class GlobalChatComponent {
     this.getAllMessages();
   }
 
-  getAllMessages(): void {
+   getAllMessages(): void {
     this.service.getALlGlobalMessages().subscribe( (messages: Array<MessageResponse>) =>{
       this.messages = messages;
     })

@@ -10,7 +10,8 @@ import {UserProfileComponent} from "../../user/user-profile/user-profile.compone
 export class ChatHeaderComponent {
   @Input()
   name?: string;
-
+  @Input()
+  title?: string;
   constructor(public dialog: MatDialog) {
   }
 
