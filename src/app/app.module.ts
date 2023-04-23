@@ -33,6 +33,10 @@ import {UserFormComponent} from "./user/user-form/user-form.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatMenuModule} from "@angular/material/menu";
+import { RegisterPageComponent } from './register/register-page/register-page.component';
+import { RegisterFormComponent } from './register/register-form/register-form.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -47,29 +51,33 @@ import {MatMenuModule} from "@angular/material/menu";
     ChatBodyComponent,
     UserListComponent,
     UserProfileComponent,
-    UserFormComponent
+    UserFormComponent,
+    RegisterPageComponent,
+    RegisterFormComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RouterOutlet,
-        BrowserAnimationsModule,
-        MatSlideToggleModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        MatListModule,
-        MatCardModule,
-        MatIconModule,
-        MatGridListModule,
-        CdkVirtualScrollViewport,
-        MatToolbarModule,
-        MatTableModule,
-        HttpClientModule,
-        NgbModule,
-        MatDialogModule,
-        MatMenuModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterOutlet,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatListModule,
+    MatCardModule,
+    MatIconModule,
+    MatGridListModule,
+    CdkVirtualScrollViewport,
+    MatToolbarModule,
+    MatTableModule,
+    HttpClientModule,
+    NgbModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatStepperModule,
+    MatSnackBarModule
+  ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true}
   ],

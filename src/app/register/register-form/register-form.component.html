@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-card-title>Register</mat-card-title>
+  <mat-card-content>
+    <mat-stepper orientation="horizontal" [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="userForm" label="Fill out your details">
+        <form [formGroup]="userForm" (ngSubmit)="submit(stepper)">
+          <mat-form-field>
+            <mat-label>EMAIL:</mat-label>
+            <input matInput formControlName="email">
+            <mat-error *ngIf="userForm.controls.email.invalid">{{getEmailError()}}</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label>USERNAME:</mat-label>
+            <input matInput formControlName="username">
+            <mat-error *ngIf="userForm.controls.username.invalid">{{getUsernameError()}}</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label>PASSWORD:</mat-label>
+            <input matInput formControlName="password" type="password">
+            <mat-error *ngIf="userForm.controls.password.invalid">{{getPasswordError()}}</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label>PROFILE DESCRIPTION:</mat-label>
+            <input matInput formControlName="description">
+            <mat-error *ngIf="userForm.controls.description.invalid">{{getDescriptionError()}}</mat-error>
+          </mat-form-field>
+          <br>
+          <button mat-fab extended color="primary" [disabled]="userForm.invalid" type="submit">REGISTER</button>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="uniqueCodeForm" label="Email verification">
+      <form [formGroup]="uniqueCodeForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Enter verification code:</mat-label>
+          <input matInput formControlName="code">
+          <mat-error *ngIf="uniqueCodeForm.controls.code.invalid">{{getUniqueCodeErrors()}}</mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-fab extended color="primary" [disabled]="uniqueCodeForm.invalid" type="submit" matStepperNext>REGISTER</button>
+      </form>
+      </mat-step>
+    </mat-stepper>
+  </mat-card-content>
+</mat-card>
