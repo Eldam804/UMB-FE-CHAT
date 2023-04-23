@@ -12,10 +12,10 @@ import {T} from "@angular/cdk/keycodes";
 export class UserListComponent {
   displayedColumns: Array<String> = ['picture', 'username', 'displayedColumns'];
   dataSource: Array<any> = [];
-  currentUser?: any;
+  currentUser: any = "";
   constructor(private userService: UserService, private router: Router, private service: GlobalChatService) {
-    this.getAllUsers();
     this.getUserId();
+    this.getAllUsers();
   }
 
   onButtonClick(userId: number, username: string) {

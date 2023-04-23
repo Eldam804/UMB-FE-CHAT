@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class PrivateChatComponent {
   messages: any;
-  currentUser: any;
+  currentUser: any = "";
   foreignUser: any;
   foreignUsername: any;
   constructor(private service: PrivateChatService, private router: Router) {

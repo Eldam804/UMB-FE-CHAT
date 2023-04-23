@@ -10,7 +10,7 @@ import {MessageResponse} from "../../model/message.model";
 export class GlobalChatComponent {
 
   messages?: Array<MessageResponse>;
-  currentUser?: any;
+  currentUser: any = "";
   constructor(private service: GlobalChatService) {
     this.getUserId();
     this.getAllMessages();
