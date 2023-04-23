@@ -32,7 +32,7 @@ export class PrivateChatService {
     if(userId == null){
       return -1;
     }
-    console.log(userId);
+    // console.log(userId);
     return parseInt(userId);
   }
 
@@ -41,7 +41,7 @@ export class PrivateChatService {
     if(username == null){
       return "";
     }
-    console.log(username);
+    // console.log(username);
     return (username);
   }
 

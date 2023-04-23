@@ -16,7 +16,7 @@ export class ChatHeaderComponent {
   currentUser: any;
 
   constructor(public dialog: MatDialog,private service: PrivateChatService) {
-    //this.getUserId();
+    this.getUserId();
   }
 
   openDialog(): void {
@@ -33,7 +33,7 @@ export class ChatHeaderComponent {
       }
     })
   }
-  /*private getUserId() {
+  private getUserId() {
     this.service.getUserId().subscribe((user: any) => {
       console.log("USER RETURNED: "+ user.id + user.username+ user.description + user.joinDate);
       this.currentUser = {
@@ -44,5 +44,5 @@ export class ChatHeaderComponent {
       }
     })
     console.log(this.currentUser);
-  }*/
+  }
 }
