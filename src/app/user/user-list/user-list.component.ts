@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../common/service/user.service";
 import {GlobalChatService} from "../../common/service/global-chat.service";
+import {T} from "@angular/cdk/keycodes";
 
 @Component({
   selector: 'app-user-list',
@@ -17,8 +18,9 @@ export class UserListComponent {
     this.getUserId();
   }
 
-  onButtonClick(userId: number) {
+  onButtonClick(userId: number, username: string) {
     this.userService.setForeignUserId(userId.toString());
+    this.userService.setForeignUsername(username);
     this.router.navigate(["private-chat"])
   }
 

@@ -11,7 +11,9 @@ export class PrivateChatService {
   private url = 'http://localhost:8080/api/private-messages'
   private userApiUrl = "http://localhost:8080/api/user/details"
 
-  constructor(private http: HttpClient, private authentication: AuthenticationService) { }
+  constructor(private http: HttpClient, private authentication: AuthenticationService) {
+
+  }
 
   getALlPrivateMessages(messageRequest: any):Observable<Array<MessageResponse>>{
     return this.http.get<Array<MessageResponse>>(this.url + "/" + messageRequest.userId + "/" + messageRequest.foreignId);
@@ -30,6 +32,17 @@ export class PrivateChatService {
     if(userId == null){
       return -1;
     }
+    console.log(userId);
     return parseInt(userId);
   }
+
+  getForeignUsername(): string{
+    let username = localStorage.getItem("foreignUsername");
+    if(username == null){
+      return "";
+    }
+    console.log(username);
+    return (username);
+  }
+
 }

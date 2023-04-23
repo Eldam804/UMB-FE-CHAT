@@ -17,4 +17,7 @@ export class UserService {
   setForeignUserId(userId: string): void {
     localStorage.setItem("foreignUser", userId);
   }
+  setForeignUsername(username: string):void {
+    localStorage.setItem("foreignUsername", username);
+  }
 }
