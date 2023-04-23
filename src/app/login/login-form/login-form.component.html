@@ -2,7 +2,9 @@
   <mat-card-title>Login</mat-card-title>
   <mat-card-content>
   <form [formGroup]="userForm" (ngSubmit)="submit()">
-  <mat-form-field>
+    <button mat-fab extended color="primary" [disabled]="userForm.invalid" type="submit" class="login_nav">LOGIN</button>
+    <button mat-fab extended color="primary" (click)="goToRegister()" class="login_nav">REGISTER</button>
+    <mat-form-field>
     <mat-label>USERNAME:</mat-label>
     <input matInput formControlName="username">
     <mat-error *ngIf="userForm.controls.username.invalid">{{getUsernameError()}}</mat-error>
@@ -14,9 +16,8 @@
     <mat-error *ngIf="userForm.controls.password.invalid">{{getPasswordError()}}</mat-error>
   </mat-form-field>
     <br>
-    <button mat-fab extended color="primary" [disabled]="userForm.invalid" type="submit">LOGIN</button>
-    <br>
-    <button mat-fab extended color="primary" (click)="goToRegister()">REGISTER</button>
+    <button mat-fab extended color="primary" [disabled]="userForm.invalid" type="submit" class="login_button">LOGIN</button>
+    <p style="color: #666">Not member? <b (click)="goToRegister()" style="color: #006DFF">Register now</b></p>
   </form>
   </mat-card-content>
 </mat-card>
