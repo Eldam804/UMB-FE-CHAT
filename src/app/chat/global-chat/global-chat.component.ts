@@ -14,6 +14,9 @@ export class GlobalChatComponent {
   constructor(private service: GlobalChatService) {
     this.getUserId();
     this.getAllMessages();
+    setInterval(() => {
+      this.getAllMessages();
+    }, 5000)
   }
 
   getAllMessages(): void {
@@ -22,6 +25,12 @@ export class GlobalChatComponent {
     })
   }
 
+    /*setTimeout(() => {
+        if (messageC)
+          messageC.scrollTo(0, messageC.scrollHeight);
+        //this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
+      }, 600)
+     */
 
   postMessage(message: any): void {
     console.log(this.currentUser);
