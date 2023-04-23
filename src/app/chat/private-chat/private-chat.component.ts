@@ -17,6 +17,9 @@ export class PrivateChatComponent {
     this.foreignUser = this.getForeignId();
     this.getUserId();
     //this.getAllPrivateMessages();
+    setInterval(() => {
+      this.getAllPrivateMessages()
+    }, 5000)
   }
   postMessage(message: any): void {
     const messageSent: any = {
@@ -33,7 +36,6 @@ export class PrivateChatComponent {
       userId: this.currentUser.userId,
       foreignId: this.foreignUser
     }
-    console.error("SENDING GET")
     this.service.getALlPrivateMessages(message).subscribe((messages) => {
       this.messages = messages;
     })
