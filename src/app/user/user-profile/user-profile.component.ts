@@ -26,6 +26,7 @@ export class UserProfileComponent {
       this.dialogRef.close();
       this.router.navigate(["/login"]);
       localStorage.removeItem("token");
+      clearInterval(this.data.intervalId);
       localStorage.clear();
     })
   }

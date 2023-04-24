@@ -13,6 +13,8 @@ export class ChatHeaderComponent {
   name?: string;
   @Input()
   title?: string;
+  @Input()
+  intervalId?: number;
   currentUser: any;
 
   constructor(public dialog: MatDialog,private service: PrivateChatService) {
@@ -26,7 +28,8 @@ export class ChatHeaderComponent {
       data: {
         username: this.currentUser.username,
         joinDate: this.currentUser.joinDate,
-        description: this.currentUser.description
+        description: this.currentUser.description,
+        intervalId: this.intervalId
         // username: "Adam",
         // joinDate: "11.1.2022",
         // description: "I just joined!"

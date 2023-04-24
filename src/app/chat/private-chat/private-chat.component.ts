@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {Message, MessageResponse} from "../../model/message.model";
 import {PrivateChatService} from "../../common/service/private-chat.service";
 import {Router} from "@angular/router";
@@ -8,17 +8,18 @@ import {Router} from "@angular/router";
   templateUrl: './private-chat.component.html',
   styleUrls: ['./private-chat.component.css']
 })
-export class PrivateChatComponent {
+export class PrivateChatComponent implements OnDestroy{
   messages: any;
   currentUser: any = "";
   foreignUser: any;
   foreignUsername: any;
+  intervalId: number;
   constructor(private service: PrivateChatService, private router: Router) {
     this.foreignUser = this.getForeignId();
     this.foreignUsername = this.getForeignUsername();
     this.getUserId();
     //this.getAllPrivateMessages();
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.getAllPrivateMessages()
     }, 5000)
   }
@@ -29,7 +30,7 @@ export class PrivateChatComponent {
     }
     this.service.postPrivateMessage(messageSent, this.foreignUser).subscribe( () => {
       this.getAllPrivateMessages();
-    })
+    });
   }
 
   private getAllPrivateMessages() {
@@ -71,5 +72,8 @@ export class PrivateChatComponent {
   }else{
     return username;
   }
+  }
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {GlobalChatService} from "../../common/service/global-chat.service";
 import {MessageResponse} from "../../model/message.model";
 
@@ -7,14 +7,15 @@ import {MessageResponse} from "../../model/message.model";
   templateUrl: './global-chat.component.html',
   styleUrls: ['./global-chat.component.css']
 })
-export class GlobalChatComponent {
+export class GlobalChatComponent implements OnDestroy{
 
   messages?: Array<MessageResponse>;
   currentUser: any = "";
+  intervalId: number;
   constructor(private service: GlobalChatService) {
     this.getUserId();
     this.getAllMessages();
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.getAllMessages();
     }, 5000)
   }
@@ -49,5 +50,9 @@ export class GlobalChatComponent {
       }
     })
     console.log("CURRENT USER ID: ", this.currentUser);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
   }
 }
