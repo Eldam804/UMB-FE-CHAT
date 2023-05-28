@@ -75,11 +75,7 @@ export class UserListComponent {
     const dialogRef = this.dialog.open(CreateGroupComponent, {
       //height: "220px",
       width: "240px",
-      data: {
-        username: "Adam",
-        joinDate: "11.1.2022",
-        description: "I just joined!"
-      }
+      data: {users: this.dataSource, name: "New Group"}
     })
   }
   onButtonClickGroup(id: number, groupName: string) {
