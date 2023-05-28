@@ -38,6 +38,7 @@ import { RegisterFormComponent } from './register/register-form/register-form.co
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { GroupChatComponent } from './chat/group-chat/group-chat.component';
+import { CreateGroupComponent } from './components/create-group/create-group.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { GroupChatComponent } from './chat/group-chat/group-chat.component';
     RegisterPageComponent,
     RegisterFormComponent,
     GroupChatComponent,
+    CreateGroupComponent,
   ],
   imports: [
     BrowserModule,

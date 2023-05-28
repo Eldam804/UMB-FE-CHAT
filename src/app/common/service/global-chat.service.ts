@@ -11,8 +11,11 @@ import {AuthenticationService} from "./authentication.service";
 export class GlobalChatService {
   private url = 'http://localhost:8080/api/global-messages'
 
+
+
   private userApiUrl = "http://localhost:8080/api/user/details"
   constructor(private http: HttpClient, private authentication: AuthenticationService) { }
+
 
   getALlGlobalMessages():Observable<Array<MessageResponse>>{
     return this.http.get<Array<MessageResponse>>(this.url);
