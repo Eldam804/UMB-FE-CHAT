@@ -8,6 +8,7 @@ import {GuardService} from "./common/service/guard.service";
 import {UserListComponent} from "./user/user-list/user-list.component";
 import {UserProfileComponent} from "./user/user-profile/user-profile.component";
 import {RegisterPageComponent} from "./register/register-page/register-page.component";
+import {GroupChatComponent} from "./chat/group-chat/group-chat.component";
 
 const router: Routes = [
   {
@@ -17,6 +18,11 @@ const router: Routes = [
   {
     path: "register",
     component: RegisterPageComponent,
+  },
+  {
+    path: "group-chat",
+    canActivate: [GuardService],
+    component: GroupChatComponent
   },
   {
     path: "global-chat",

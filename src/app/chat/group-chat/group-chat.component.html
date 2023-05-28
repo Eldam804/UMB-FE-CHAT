@@ -1,3 +1,17 @@
 <div>
+  <app-chat-header
+    [name]="currentUser.username"
+    [title]="'Group Chat'"
+    [group]="true"
+  >
+  </app-chat-header>
+  <app-chat-body
+    [messages]="messages"
+    (sendMessage)="postMessage($event)"
+    [currentUser]="currentUser"
+  >
+  </app-chat-body>
+  <app-chat-footer></app-chat-footer>
+
 </div>
 
