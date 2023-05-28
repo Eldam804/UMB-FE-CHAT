@@ -18,8 +18,18 @@
   height: 50px;
   width: 50px;
 }
+.color{
+  background: linear-gradient(#00E6FF, #006DFF);
+}
+.group_chat{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
 .title{
   font-weight: 500;
+  margin-right: 10px;
 }
 .login_name{
   display: flex;

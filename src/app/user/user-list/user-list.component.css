@@ -1,16 +1,16 @@
 .container-div{
-  height: 800px;
+  height: 80vh;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-left: 10%;
+  width: 95%;
+  margin: 20px auto;
 }
 
 .demo-table {
   overflow-x: hidden;
   min-width: 40%;
   width: 90%;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 30px auto;
 }
 
 .filler {
@@ -39,4 +39,18 @@
 }
 .mat-mdc-row:hover .mat-mdc-cell {
   border-color: currentColor;
+}
+.chat-group{
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+.chat-group span{
+  margin-right: 10px;
+}
+.accept{
+  margin-bottom: 10px;
+}
+.color{
+  background: linear-gradient(#00E6FF, #006DFF);
 }

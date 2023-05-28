@@ -1,11 +1,11 @@
 <div class="dialog">
-  <h1 mat-dialog-title class="dialog">{{data.groupName}}
+  <h1 mat-dialog-title class="dialog title">{{data.groupName}}
     <button class="close" mat-icon-button (click)="onNoclick()">
-      <mat-icon>close</mat-icon>
+      <mat-icon >close</mat-icon>
     </button>
   </h1>
-  <mat-dialog-content class="mat-typography dialog">
-    <mat-form-field>
+  <mat-dialog-content class="mat-typography dialog pop">
+    <mat-form-field class="pop_up" >
       <span>{{selected}}</span>
       <mat-select
         (selectionChange)="onUserSelectionChange($event)"
@@ -18,7 +18,7 @@
     </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions class="dialog-actions dialog" align="center">
-    <button mat-raised-button color="warn" class="button" (click)="addUser()" type="submit">
+    <button mat-raised-button color="warn" class="button color" (click)="addUser()" type="submit">
       Add user
     </button>
   </mat-dialog-actions>

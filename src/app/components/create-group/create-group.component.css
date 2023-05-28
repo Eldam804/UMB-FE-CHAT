@@ -1,0 +1,13 @@
+.create_group{
+  margin: auto;
+}
+.field{
+  margin-top: 10px;
+  width: 190px;
+}
+.color{
+  background: linear-gradient(#00E6FF, #006DFF);
+  border: none;
+  padding: 7px;
+  font-weight: bold;
+}

@@ -1,0 +1,16 @@
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 30px;
+}
+.pop{
+  padding-bottom: 0;
+}
+.pop_up{
+  width: 180px;
+}
+.color{
+  background: linear-gradient(#00E6FF, #006DFF);
+}

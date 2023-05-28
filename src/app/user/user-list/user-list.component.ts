@@ -15,7 +15,7 @@ import {GroupChatService} from "../../common/service/group-chat.service";
 export class UserListComponent {
   displayedColumns: Array<String> = ['picture', 'username', 'displayedColumns'];
   displayedColumnsGroup: Array<String> = ['picture', 'groupName', 'displayedColumns'];
-  displayedColumnsInvites: Array<String> = ['picture', 'groupName', 'displayedColumns','actions'];
+  displayedColumnsInvites: Array<String> = ['picture', 'groupName', 'displayedColumns','actions','actionss'];
   dataSource: Array<any> = [];
   currentUser: any = "";
   dataSource2: Array<any> = [];
