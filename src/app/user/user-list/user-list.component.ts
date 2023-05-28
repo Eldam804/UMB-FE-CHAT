@@ -47,7 +47,7 @@ export class UserListComponent {
   }
 
   onButtonClickGroup(id: number, groupName: string) {
-    this.groupService.setGroupId(groupName.toString());
+    this.groupService.setGroupId(id.toString());
     this.router.navigate(["group-chat"]);
   }
 }

@@ -14,7 +14,7 @@ export class GroupChatComponent {
   messages: any;
   foreignUser: any;
   groupChatId: any;
-  private currentUser: any;
+  currentUser: any;
   constructor(private service: GroupChatService, private router: Router) {
     this.groupChatId = this.getGroupChatId();
     this.getUserId();
