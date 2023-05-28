@@ -1,6 +1,11 @@
 <div>
   <div class="header">
     <img src="assets/logo_blue.png" class="logo">
+    <div *ngIf="group">
+      <button (click)="modal()" >
+        <mat-icon>person</mat-icon>
+      </button>
+    </div>
     <span class="title">{{title}}</span>
     <div class="login_name">
       <span class="name">{{name}}</span>

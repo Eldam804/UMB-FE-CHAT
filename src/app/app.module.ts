@@ -40,6 +40,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { GroupChatComponent } from './chat/group-chat/group-chat.component';
 import { CreateGroupComponent } from './components/create-group/create-group.component';
 import {MatOptionModule} from "@angular/material/core";
+import { AddUserComponent } from './components/add-user/add-user.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
@@ -60,6 +62,7 @@ import {MatSelectModule} from "@angular/material/select";
     RegisterFormComponent,
     GroupChatComponent,
     CreateGroupComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +88,7 @@ import {MatSelectModule} from "@angular/material/select";
     MatSnackBarModule,
     MatOptionModule,
     MatSelectModule
-  ],
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true}
   ],
