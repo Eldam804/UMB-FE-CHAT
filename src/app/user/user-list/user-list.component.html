@@ -30,6 +30,7 @@
       (click)="onButtonClick(row.id, row.username)"
     ></tr>
   </mat-table>
+    <button class="outer-button" mat-mini-fab color="white" aria-label="User profile" (click)="openDialog()"></button>
     <span>Group chat</span>
     <mat-table [dataSource]="dataSource2" class="mat-elevation-z8 demo-table">
       <ng-container matColumnDef="picture">

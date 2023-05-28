@@ -39,6 +39,8 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { GroupChatComponent } from './chat/group-chat/group-chat.component';
 import { CreateGroupComponent } from './components/create-group/create-group.component';
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { CreateGroupComponent } from './components/create-group/create-group.com
     MatDialogModule,
     MatMenuModule,
     MatStepperModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true}

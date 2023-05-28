@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../common/service/user.service";
 import {GlobalChatService} from "../../common/service/global-chat.service";
-import {T} from "@angular/cdk/keycodes";
-import {group} from "@angular/animations";
+import {CreateGroupComponent} from "../../components/create-group/create-group.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-user-list',
@@ -19,7 +19,7 @@ export class UserListComponent {
   dataSource2: Array<any> = [];
   dataSource3: Array<any> = [];
 
-  constructor(private userService: UserService, private router: Router, private service: GlobalChatService) {
+  constructor(private userService: UserService, private router: Router, private service: GlobalChatService,public dialog: MatDialog) {
     this.getUserId();
     this.getAllUsers();
   }
@@ -69,7 +69,17 @@ export class UserListComponent {
       this.getUserId();
     })
   }
-
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateGroupComponent, {
+      //height: "220px",
+      width: "240px",
+      data: {
+        username: "Adam",
+        joinDate: "11.1.2022",
+        description: "I just joined!"
+      }
+    })
+  }
 }
 
 
