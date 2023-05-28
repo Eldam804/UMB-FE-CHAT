@@ -11,8 +11,10 @@ import {T} from "@angular/cdk/keycodes";
 })
 export class UserListComponent {
   displayedColumns: Array<String> = ['picture', 'username', 'displayedColumns'];
+  displayedColumnsGroup: Array<String> = ['picture', 'groupName', 'displayedColumns'];
   dataSource: Array<any> = [];
   currentUser: any = "";
+  dataSource2: Array<any> = [];
   constructor(private userService: UserService, private router: Router, private service: GlobalChatService) {
     this.getUserId();
     this.getAllUsers();
@@ -30,19 +32,19 @@ export class UserListComponent {
     })
   }
 
-
-
-
-
   private async getUserId() {
     await this.service.getUserId().subscribe((user: any) => {
       this.currentUser = {
         userId: user.id,
         username: user.username
       }
+      this.userService.getAllGroups(this.currentUser.userId).subscribe((groups: any) => {
+        this.dataSource2 = groups;
+      })
     })
     console.log("CURRENT USER ID: ", this.currentUser);
   }
+
 }
 
 
