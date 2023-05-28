@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {UserService} from "../../common/service/user.service";
 import {GlobalChatService} from "../../common/service/global-chat.service";
 import {T} from "@angular/cdk/keycodes";
+import {GroupChatService} from "../../common/service/group-chat.service";
 
 @Component({
   selector: 'app-user-list',
@@ -15,7 +16,7 @@ export class UserListComponent {
   dataSource: Array<any> = [];
   currentUser: any = "";
   dataSource2: Array<any> = [];
-  constructor(private userService: UserService, private router: Router, private service: GlobalChatService) {
+  constructor(private userService: UserService, private router: Router, private service: GlobalChatService, private groupService: GroupChatService) {
     this.getUserId();
     this.getAllUsers();
   }
@@ -45,6 +46,10 @@ export class UserListComponent {
     console.log("CURRENT USER ID: ", this.currentUser);
   }
 
+  onButtonClickGroup(id: number, groupName: string) {
+    this.groupService.setGroupId(groupName.toString());
+    this.router.navigate(["group-chat"]);
+  }
 }
 
 
