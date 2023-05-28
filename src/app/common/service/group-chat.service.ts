@@ -39,4 +39,8 @@ export class GroupChatService {
   inviteUserToExistingGroup(params: any): Observable<void> {
     return this.http.post<void>(this.inviteUrl, params);
   }
+
+  createGroup(data: any): Observable<void> {
+    return this.http.post<void>(this.url, data);
+  }
 }

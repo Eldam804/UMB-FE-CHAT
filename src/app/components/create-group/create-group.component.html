@@ -1,9 +1,8 @@
 <div>
-
   <mat-dialog-content>
-  <mat-label>Toppings</mat-label>
-
-
+    <h1>Create new group</h1>
+    <mat-label>Group name:</mat-label>
+    <input [(ngModel)]="groupName">
   <mat-form-field>
     <mat-select
       (selectionChange)="onUserSelectionChange($event)"
@@ -17,7 +16,7 @@
   </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button>odoslat</button>
+    <button (click)="createGroup()">odoslat</button>
   </mat-dialog-actions>
 
 </div>

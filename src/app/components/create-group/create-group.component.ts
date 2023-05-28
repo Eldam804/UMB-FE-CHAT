@@ -1,6 +1,8 @@
 import {Component, Inject} from '@angular/core';
 import {FormControl} from "@angular/forms";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {GroupChatService} from "../../common/service/group-chat.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-group',
@@ -8,14 +10,13 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
   styleUrls: ['./create-group.component.css']
 })
 export class CreateGroupComponent {
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-  }
-  toppings = new FormControl('');
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  groupName: string | undefined;
   selected: Array<any> = [];
   selectedIds: Array<any> = [];
   options: any;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private service: GroupChatService, private router: Router, private dialogRef: MatDialogRef<CreateGroupComponent>) {
+  }
 
 
   onUserSelectionChange(event: any) {
@@ -31,9 +32,22 @@ export class CreateGroupComponent {
     }else{
       this.selectedIds.push(event.id);
     }
+  }
 
+  onNoclick(): void {
+    this.dialogRef.close();
+  }
 
-    console.debug("USERNAMES:" + this.selected);
-    console.debug("IDS: " + this.selectedIds);
+  createGroup(): void{
+    const data: any = {
+      groupName: this.groupName,
+      usersInvited: this.selectedIds
+    }
+    console.debug(data.groupName);
+    console.debug(data.usersInvited);
+    this.service.createGroup(data).subscribe(() => {
+      this.onNoclick();
+      this.router.navigate(["user-list"]);
+    })
   }
 }
