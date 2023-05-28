@@ -37,6 +37,7 @@ import { RegisterPageComponent } from './register/register-page/register-page.co
 import { RegisterFormComponent } from './register/register-form/register-form.component';
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { GroupChatComponent } from './chat/group-chat/group-chat.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     UserFormComponent,
     RegisterPageComponent,
     RegisterFormComponent,
+    GroupChatComponent,
   ],
   imports: [
     BrowserModule,

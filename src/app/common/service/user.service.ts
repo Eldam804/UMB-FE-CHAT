@@ -8,6 +8,7 @@ import {MessageResponse} from "../../model/message.model";
 })
 export class UserService {
   private url = "http://localhost:8080/api/user"
+  private groupUrl = "http://localhost:8080/api/user/groups"
   constructor(private http: HttpClient) {
   }
 
@@ -19,5 +20,9 @@ export class UserService {
   }
   setForeignUsername(username: string):void {
     localStorage.setItem("foreignUsername", username);
+  }
+
+  getAllGroups(groupId: number): Observable<Array<any>> {
+    return this.http.get<Array<any>>(this.groupUrl + "/" + groupId);
   }
 }
