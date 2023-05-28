@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {UserProfileComponent} from "../../user/user-profile/user-profile.component";
 import {PrivateChatService} from "../../common/service/private-chat.service";
+import {AddUserComponent} from "../add-user/add-user.component";
 
 @Component({
   selector: 'app-chat-header',
@@ -13,6 +14,9 @@ export class ChatHeaderComponent {
   name?: string;
   @Input()
   title?: string;
+
+  @Input()
+  group: boolean = false;
   currentUser: any;
 
   constructor(public dialog: MatDialog,private service: PrivateChatService) {
@@ -44,5 +48,15 @@ export class ChatHeaderComponent {
       }
     })
     console.log(this.currentUser);
+  }
+
+  modal() {
+    const dialogRef = this.dialog.open(AddUserComponent, {
+      //height: "220px",
+      width: "240px",
+      data: {
+        groupName: this.name
+      }
+    })
   }
 }

@@ -38,6 +38,9 @@ import { RegisterFormComponent } from './register/register-form/register-form.co
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { GroupChatComponent } from './chat/group-chat/group-chat.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -56,30 +59,33 @@ import { GroupChatComponent } from './chat/group-chat/group-chat.component';
     RegisterPageComponent,
     RegisterFormComponent,
     GroupChatComponent,
+    AddUserComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterOutlet,
-    BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatListModule,
-    MatCardModule,
-    MatIconModule,
-    MatGridListModule,
-    CdkVirtualScrollViewport,
-    MatToolbarModule,
-    MatTableModule,
-    HttpClientModule,
-    NgbModule,
-    MatDialogModule,
-    MatMenuModule,
-    MatStepperModule,
-    MatSnackBarModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterOutlet,
+        BrowserAnimationsModule,
+        MatSlideToggleModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatListModule,
+        MatCardModule,
+        MatIconModule,
+        MatGridListModule,
+        CdkVirtualScrollViewport,
+        MatToolbarModule,
+        MatTableModule,
+        HttpClientModule,
+        NgbModule,
+        MatDialogModule,
+        MatMenuModule,
+        MatStepperModule,
+        MatSnackBarModule,
+        MatAutocompleteModule,
+        MatSelectModule
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true}
   ],

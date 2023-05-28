@@ -10,6 +10,7 @@ export class GroupChatService {
   private url = "http://localhost:8080/api/group-message"
   private userApiUrl = "http://localhost:8080/api/user/details"
 
+  private inviteUrl = "http://localhost:8080/api/user/invite"
   constructor(private http: HttpClient, private authentication: AuthenticationService) { }
 
   getAllGroupMessages(groupId: number): Observable<Array<any>>{
@@ -35,4 +36,7 @@ export class GroupChatService {
     return parseInt(userId);
   }
 
+  inviteUserToExistingGroup(params: any): Observable<void> {
+    return this.http.post<void>(this.inviteUrl, params);
+  }
 }
