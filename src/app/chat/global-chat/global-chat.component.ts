@@ -22,6 +22,7 @@ export class GlobalChatComponent {
    getAllMessages(): void {
     this.service.getALlGlobalMessages().subscribe( (messages: Array<MessageResponse>) =>{
       this.messages = messages;
+      console.error(messages);
     })
   }
 

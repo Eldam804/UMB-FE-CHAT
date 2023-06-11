@@ -5,11 +5,13 @@
       <span class="user_name">{{m.sentBy}}</span><br>
       <span class="user-message">
         {{m.content}}
+        <button (click)="deleteMessage(m.id)"></button>
       </span>
     </div>
 <!--    <div class="grid_item item2">    </div>-->
     <div class="grid_item item3">
       <span *ngIf="myMessage(m)" class="my-message">
+        <button (click)="deleteMessage(m.id)"></button>
         {{m.content}}
       </span>
     </div>

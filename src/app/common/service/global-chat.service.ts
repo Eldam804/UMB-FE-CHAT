@@ -10,7 +10,6 @@ import {AuthenticationService} from "./authentication.service";
 })
 export class GlobalChatService {
   private url = 'http://localhost:8080/api/global-messages'
-
   private userApiUrl = "http://localhost:8080/api/user/details"
   constructor(private http: HttpClient, private authentication: AuthenticationService) { }
 
@@ -22,5 +21,8 @@ export class GlobalChatService {
   }
   getUserId(): Observable<any>{
     return this.http.get<any>(this.userApiUrl + "/" + this.authentication.getToken());
+  }
+  deleteGlobalMessage(messageId: number):Observable<void>{
+    return this.http.delete<void>(this.url+ "/" + messageId)
   }
 }

@@ -4,6 +4,7 @@ export interface Message {
 }
 
 export interface MessageResponse {
+  id: number;
   messageId: number,
   timestamp: string,
   content: string,

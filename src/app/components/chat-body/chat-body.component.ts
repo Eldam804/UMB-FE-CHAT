@@ -12,6 +12,7 @@ import {
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Message, MessageResponse} from "../../model/message.model";
 import {MatMenuTrigger} from "@angular/material/menu";
+import {GlobalChatService} from "../../common/service/global-chat.service";
 
 @Component({
   selector: 'app-chat-body',
@@ -26,7 +27,7 @@ export class ChatBodyComponent implements AfterViewChecked{
   currentUser?: any;
   @Input()
   foreignUser?: number;
-  constructor() {
+  constructor(private service: GlobalChatService) {
     this.userMessage = new FormGroup<any>({
       message: new FormControl(null, [Validators.required]),
       sentBy: new FormControl(null)
@@ -107,5 +108,11 @@ export class ChatBodyComponent implements AfterViewChecked{
     }else{
       this.userMessage.controls["message"].setValue(message + emoji);
     }
+  }
+
+  deleteMessage(messageId: number) {
+    this.service.deleteGlobalMessage(messageId).subscribe(()=>{
+
+    })
   }
 }
