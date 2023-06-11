@@ -25,4 +25,8 @@ export class UserService {
   getAllGroups(groupId: number): Observable<Array<any>> {
     return this.http.get<Array<any>>(this.groupUrl + "/" + groupId);
   }
+
+  editUserById(id: number, newusername: string, newdescription: string): Observable<void>{
+    return this.http.put<void>(this.url + "/" + id,{username: newusername, description: newdescription})
+  }
 }

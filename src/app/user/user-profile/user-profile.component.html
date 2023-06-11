@@ -5,9 +5,13 @@
   </button>
 </h1>
 <mat-dialog-content class="mat-typography dialog">
-  <span>Username: {{data.username}}</span>
+  <button (click)="edit()"></button>
+  <span *ngIf="editing" >Username: {{data.username}}</span>
+   <input *ngIf="!editing" [(ngModel)]="newusername">
   <span>Join date: {{data.joinDate}}</span>
-  <span>Description: {{data.description}}</span>
+  <span *ngIf="editing">Description: {{data.description}}</span>
+  <input *ngIf="!editing"[(ngModel)]="newdescription">
+  <button *ngIf="!editing" (click)="edituser()">edit</button>
 </mat-dialog-content>
 <mat-dialog-actions class="dialog-actions dialog" align="center">
   <button mat-raised-button color="warn" class="button" (click)="logout()">

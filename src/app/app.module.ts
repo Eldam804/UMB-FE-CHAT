@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormField} from "@angular/material/form-field";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
@@ -61,31 +61,32 @@ import {MatSelectModule} from "@angular/material/select";
     GroupChatComponent,
     AddUserComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RouterOutlet,
-        BrowserAnimationsModule,
-        MatSlideToggleModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        MatListModule,
-        MatCardModule,
-        MatIconModule,
-        MatGridListModule,
-        CdkVirtualScrollViewport,
-        MatToolbarModule,
-        MatTableModule,
-        HttpClientModule,
-        NgbModule,
-        MatDialogModule,
-        MatMenuModule,
-        MatStepperModule,
-        MatSnackBarModule,
-        MatAutocompleteModule,
-        MatSelectModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterOutlet,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatListModule,
+    MatCardModule,
+    MatIconModule,
+    MatGridListModule,
+    CdkVirtualScrollViewport,
+    MatToolbarModule,
+    MatTableModule,
+    HttpClientModule,
+    NgbModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatStepperModule,
+    MatSnackBarModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    FormsModule
+  ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true}
   ],

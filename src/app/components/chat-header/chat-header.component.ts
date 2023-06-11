@@ -24,10 +24,12 @@ export class ChatHeaderComponent {
   }
 
   openDialog(): void {
+    console.error(this.currentUser);
     const dialogRef = this.dialog.open(UserProfileComponent, {
       //height: "220px",
       width: "240px",
       data: {
+        id: this.currentUser.userId,
         username: this.currentUser.username,
         joinDate: this.currentUser.joinDate,
         description: this.currentUser.description
